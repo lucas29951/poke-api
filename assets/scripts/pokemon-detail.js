@@ -26,7 +26,7 @@ async function loadPokemon(id) {
             ),
         ]);
 
-        const abilitiesWrapper = document.querySelector('.pokemon-detail-wrap .pokemon-detail-move');
+        const abilitiesWrapper = document.querySelector('.pokemon-detail-wrap .pokemon-detail.move');
 
         abilitiesWrapper.innerHTML = "";
 
@@ -35,7 +35,7 @@ async function loadPokemon(id) {
                 const flavorText = getEnglishFlavorText(pokemonSpecies);
                 document.querySelector('.body3-fonts.pokemon-description').textContent = flavorText;
 
-                const [leftArrow, rightArrow] = ['#leftArrow', '#rightArrow'].map((sel) =>
+                const [leftArrow, rightArrow] = ['#left-arrow', '#right-arrow'].map((sel) =>
                     document.querySelector(sel)
             );
             leftArrow.removeEventListener("click", navigatePokemon);
@@ -116,13 +116,13 @@ const typeColors = {
         return;
     }
 
-    const detailMainElement = document.querySelector('detail-main');
+    const detailMainElement = document.querySelector('.detail-main');
     setElementStyles([detailMainElement], "backgroundColor", color);
     setElementStyles([detailMainElement], "borderColor", color);
 
-    setElementStyles(document.querySelector('.power-wrapper > p'), "backgroundColor", color);
-    setElementStyles(document.querySelector('.stats-wrap > p.stats'), "color", color);
-    setElementStyles(document.querySelector('.stats-wrap > progress-bar'), "color", color);
+    setElementStyles(document.querySelectorAll('.power-wrapper > p'), "backgroundColor", color);
+    setElementStyles(document.querySelectorAll('.stats-wrap p.stats'), "color", color);
+    setElementStyles(document.querySelectorAll('.stats-wrap .progress-bar'), "color", color);
 
     const rgbaColor = rgbaFromHex(color);
     const styleTag = document.createElement('style');
@@ -154,7 +154,7 @@ const typeColors = {
 
 
   function displayPokemonDetails(pokemon) {
-    const { name, is, types, weight, height, abilities, stats } = pokemon;
+    const { name, id, types, weight, height, abilities, stats } = pokemon;
     const capitalizePokemonName = capitalizeFirstLetter(name);
 
     document.querySelector('title').textContent = capitalizePokemonName;
@@ -179,10 +179,10 @@ const typeColors = {
         });
     });
 
-    document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts weight').textContent = `${weight / 10} kg`;
-    document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts height'). textContent = `${height / 10} kg`;
+    document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts.weight').textContent = `${weight / 10}kg`;
+    document.querySelector('.pokemon-detail-wrap .pokemon-detail p.body3-fonts.height').textContent = `${height / 10}m`;
 
-    const abilitiesWrapper = document.querySelector('pokemon-detail-wrap .pokemon-detail.move');
+    const abilitiesWrapper = document.querySelector('.pokemon-detail-wrap .pokemon-detail.move');
     abilities.forEach(({ ability }) => {
         createAndAppendElement(abilitiesWrapper, "p", {
             className: "body3-fonts",
