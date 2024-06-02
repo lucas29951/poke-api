@@ -32,3 +32,35 @@ async function fetchPokemonDataBeforeRedirect(id) {
         console.error('Fail to fetch Pokemon data before redirect');
     }
 }
+
+
+function displayPokemons(pokemon) {
+    listWrapper.innerHTML = "";
+
+    pokemon.forEach((pokemon) => {
+        const pokemonID = pokemon.url.split('/')[6];
+        const listItem = document.createElement('div');
+        listItem.className = "list-item";
+        listItem.innerHTML = `
+        <div class="number-wrap">
+            <p class="caption-fonts">#${pokemonID}</p>
+        </div>
+        <div class="image-wrap">
+            <img src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}">
+        </div>
+        <div class="name-wrap">
+            <p class="body3-fonts">#${pokemon.name}</p>
+        </div>
+        `;
+
+        listItem.addEventListener("click", async () => {
+            const success = await fetchPokemonDataBeforeRedirect(pokemonID);
+
+            if(success) {
+                window.location.href = `./detail.html?id=${pokemonID}`;
+            }
+        });
+
+        listWrapper.appendChild(listItem);
+    });
+}
