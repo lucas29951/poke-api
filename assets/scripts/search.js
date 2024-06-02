@@ -7,22 +7,18 @@ inputElement.addEventListener("input", () => {
     handleInputChange(inputElement);
 });
 
-search_icon.addEventListener("click", () => {
-    handleSearchCloseOnClick;
-});
+search_icon.addEventListener("click", handleSearchCloseOnClick);
 
-sort_wrapper.addEventListener("click", () => {
-    handleSortIconOnCLick;
-});
+sort_wrapper.addEventListener("click", handleSortIconOnCLick);
 
 
 function handleInputChange(inputElement) {
     const inputValue = inputElement.value;
 
     if(inputValue !== "") {
-        document.querySelector('search-close-icon').classList.add('search-close-icon-visible');
+        document.querySelector('#search-close-icon').classList.add('search-close-icon-visible');
     } else {
-        document.querySelector('search-close-icon').classList.remove('search-close-icon-visible');
+        document.querySelector('#search-close-icon').classList.remove('search-close-icon-visible');
     }
 }
 
