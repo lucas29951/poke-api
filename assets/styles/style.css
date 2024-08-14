@@ -352,6 +352,7 @@ body {
   flex-direction: column;
   position: relative;
   z-index: 2;
+  width: 80%;
 }
 
 .power-wrapper {
