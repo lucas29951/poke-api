@@ -130,7 +130,7 @@ const typeColors = {
     .stats-wrap .progress-bar::-webkit-progress-bar {
         background-color: rgba(${rgbaColor}, 0.5);
     }
-    .stats-wrap .progress-bar::webkit-progress-value {
+    .stats-wrap .progress-bar::-webkit-progress-value {
         background-color: ${color};
     }
     `;
