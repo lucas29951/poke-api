@@ -13,6 +13,14 @@ Este proyecto es una **Pokedex interactiva** que permite a los usuarios buscar y
 - **Vista Detallada:** Muestra las estadísticas y habilidades del Pokémon seleccionado.
 - **Navegación Sencilla:** Interfaz intuitiva con elementos visuales como iconos y gráficos.
 
+## Capturas de Pantalla
+
+### Página Principal
+![Pagina Principal](principal-busqueda.png)
+
+### Detalle del Pokémon
+![Detalle Pokemon](detalle-pokemon.png)
+
 ## Tecnologías Utilizadas
 
 - **HTML:** Estructura del contenido de la página.
